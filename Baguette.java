@@ -8,6 +8,13 @@ public class Baguette extends Actor
         if(getX() <=0) {
             resetBaguette();
         }
+        
+        if(isTouching(Hero.class)) {
+            //add gameover symbol
+            GameOver gameEnd = new GameOver();
+            getWorld().addObject(gameEnd, 300, 200);
+            getWorld().removeObject(this);
+        }
     }
     
     public void resetBaguette() {
